@@ -9,6 +9,7 @@ import laravel from "@/public/laravel.png";
 import wordpress from "@/public/wordpress.png";
 import react from "@/public/react.png";
 import php from "@/public/php.png";
+import Link from "next/link";
 
 export default function Hero() {
   const calculatePosition = (index: number, total = 8) => {
@@ -75,9 +76,12 @@ export default function Hero() {
               ))}
             </div>
 
-            <button className="bg-gradient-to-r from-violet-600 to-blue-500 text-white px-6 md:px-8 py-2 md:py-3 rounded-full text-base md:text-lg font-semibold hover:opacity-90 transition-opacity">
+            <Link
+              href="https://codingsouls.com/contact/"
+              className="bg-gradient-to-r from-violet-600 to-blue-500 text-white px-6 md:px-8 py-2 md:py-3 rounded-full text-base md:text-lg font-semibold hover:opacity-90 transition-opacity"
+            >
               CONTACT
-            </button>
+            </Link>
           </div>
 
           {/* Right Content - Rotating Icons */}
@@ -97,7 +101,7 @@ export default function Hero() {
                   {
                     src: flutter,
                     alt: "Flutter",
-                    bg: "bg-gradient-to-br from-blue-700 to-blue-300",
+                    bg: "bg-gradient-to-br from-blue-900 to-blue-400",
                   },
                   {
                     src: python,

@@ -1,17 +1,14 @@
+import HeroSection from "@/components/CourseSection";
 import Hero from "@/components/Hero";
-import Features from "@/components/Features";
-import CourseSection from "@/components/CourseSection";
-import TestimonialSection from "@/components/CourseSection";
-import CTASection from "@/components/CTASection";
+import ModernContactForm from "@/components/contact";
+import backgroundImage from "@/public/img3.jpg";
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <Features />
-      <CourseSection />
-      <TestimonialSection />
-      <CTASection />
+      <HeroSection backgroundImage={backgroundImage} />
+      <ModernContactForm />
     </>
   );
 }

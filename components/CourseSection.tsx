@@ -1,54 +1,56 @@
-export default function CourseSection() {
-  const courses = [
-    {
-      title: "Web Development Bootcamp",
-      description: "Learn HTML, CSS, JavaScript, React, and Node.js",
-      duration: "12 weeks",
-      level: "Beginner",
-    },
-    {
-      title: "Python Programming",
-      description: "Master Python from basics to advanced concepts",
-      duration: "8 weeks",
-      level: "Intermediate",
-    },
-    {
-      title: "Data Structures & Algorithms",
-      description: "Essential computer science concepts",
-      duration: "10 weeks",
-      level: "Advanced",
-    },
-  ];
+"use client";
 
-  return (
-    <section className="py-20">
-      <div className="max-w-7xl mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-12">
-          Popular Courses
-        </h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {courses.map((course, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-lg shadow-md overflow-hidden"
-            >
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2">{course.title}</h3>
-                <p className="text-gray-600 mb-4">{course.description}</p>
-                <div className="flex justify-between text-sm text-gray-500">
-                  <span>Duration: {course.duration}</span>
-                  <span>Level: {course.level}</span>
-                </div>
-              </div>
-              <div className="px-6 py-4 bg-gray-50">
-                <button className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">
-                  Enroll Now
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
+import React from "react";
+import Image from "next/image";
+import { StaticImageData } from "next/image";
+
+interface HeroSectionProps {
+  title?: string;
+  subtitle?: string;
+  buttonText?: string;
+  backgroundImage: StaticImageData;
+  onContactClick?: () => void;
 }
+
+const HeroSection = ({
+  title = "Lorem Ipsum Dolor Sit Amet Consectetur Adipisicing Elit.",
+  subtitle = "Lorem Ipsum Dolor Sit Amet.",
+  buttonText = "Contact Now",
+  backgroundImage,
+  onContactClick = () => {},
+}: HeroSectionProps) => {
+  return (
+    <div className="relative w-full h-[500px] flex items-center justify-center text-white overflow-hidden">
+      {/* Background Image */}
+      <Image
+        src={backgroundImage}
+        alt="Background"
+        fill
+        priority
+        className="object-cover"
+        quality={100}
+      />
+
+      {/* Dark Overlay */}
+      <div className="absolute inset-0 bg-black/50 z-[1]" />
+
+      {/* Content */}
+      <div className="relative z-[2] text-center px-4 max-w-4xl mx-auto">
+        <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
+          {title}
+        </h1>
+        <p className="text-xl md:text-2xl mb-8 text-gray-200">{subtitle}</p>
+        <button
+          onClick={onContactClick}
+          className="px-8 py-3 bg-white text-gray-900 rounded-full font-medium 
+                   hover:bg-gray-100 transition-colors duration-200 
+                   transform hover:scale-105"
+        >
+          {buttonText}
+        </button>
+      </div>
+    </div>
+  );
+};
+
+export default HeroSection;
