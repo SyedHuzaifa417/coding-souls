@@ -19,7 +19,7 @@ export default function Footer() {
                   href="/courses"
                   className="text-gray-400 hover:text-white"
                 >
-                  Courses
+                  Project
                 </Link>
               </li>
               <li>
